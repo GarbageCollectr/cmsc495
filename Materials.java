@@ -1,5 +1,11 @@
+import java.io.Serializable;
+
 // Materials Class
-class Materials {
+class Materials implements Serializable {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   private String brand;
   private String material;
   private double cost;
@@ -9,6 +15,9 @@ class Materials {
   // Constructor, getters, setters, and any other necessary methods
 
   // Example constructor
+
+
+
   public Materials(String brand, String material, double cost, String type,
       Settings optimalSettings) {
     this.setBrand(brand);

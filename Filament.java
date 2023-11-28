@@ -1,5 +1,9 @@
 // Filament Class (Subclass of Materials)
 public class Filament extends Materials {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   // Additional properties or methods specific to Filament
   private double diameter;
   private double weight;

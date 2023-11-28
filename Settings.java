@@ -1,6 +1,15 @@
+import java.io.Serializable;
+
 // Settings Class
-public class Settings {
+public class Settings implements Serializable {
   // Placeholder for settings common to both Materials and Printer
+
+
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   private TemperatureRange tempSettings;
 
   public Settings() {

@@ -1,6 +1,10 @@
 
 // Resin Class (Subclass of Materials)
 class Resin extends Materials {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   private double volume;
 
   // Example constructor

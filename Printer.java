@@ -1,8 +1,13 @@
 // Printer Class
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Printer {
+public class Printer implements Serializable {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   private String brand;
   private List<String> supportedMaterials;
   private double bedArea;
