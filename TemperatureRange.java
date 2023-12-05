@@ -1,33 +1,38 @@
+import java.io.Serializable;
+
 // TemperatureRange Class
-public class TemperatureRange {
-  private int minTemp;
-  private int maxTemp;
+public class TemperatureRange implements Serializable {
 
-  // Constructor, getters, setters, and any other necessary methods
+	private static final long serialVersionUID = 1L;
+	private int minTemp;
+	private int maxTemp;
 
-  // Example constructor
-  public TemperatureRange(int minTemp, int maxTemp) {
-    this.minTemp = minTemp;
-    this.maxTemp = maxTemp;
-  }
+	// Constructor, getters, setters, and any other necessary methods
 
-  public int getMax() {
-    return this.maxTemp;
-  }
+	// Example constructor
 
-  public int getMin() {
-    return this.minTemp;
-  }
+	public TemperatureRange(int minTemp, int maxTemp) {
+		this.minTemp = minTemp;
+		this.maxTemp = maxTemp;
+	}
 
-  public void setMax(int x) {
-    this.maxTemp = x;
-  }
+	public int getMax() {
+		return this.maxTemp;
+	}
 
-  public void setMin(int x) {
-    this.minTemp = x;
-  }
+	public int getMin() {
+		return this.minTemp;
+	}
 
-  public String toString() {
-    return "Max Temp = " + maxTemp + ", Min Temp = " + minTemp;
-  }
+	public void setMax(int x) {
+		this.maxTemp = x;
+	}
+
+	public void setMin(int x) {
+		this.minTemp = x;
+	}
+
+	public String toString() {
+		return "Max Temp = " + maxTemp + ", Min Temp = " + minTemp;
+	}
 }

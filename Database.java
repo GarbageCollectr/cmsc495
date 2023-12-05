@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +21,43 @@ public class Database {
   // needs functionality to return a List<Material> with a subset of materialList that has only
   // nodes with certain colors, material types, etc
 
+  public static void writePrinters(String fileName, List<Printer> printers) {
+    try (ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+      stream.writeObject(printers);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
+  }
+
+  @SuppressWarnings("unchecked")
+  public static List<Printer> readPrinters(String fileName) {
+    try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName))) {
+      return (List<Printer>) stream.readObject();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+  }
+
+  public static void writeMaterials(String fileName, List<Materials> mats) {
+    try (ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+      stream.writeObject(mats);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
+  }
+
+  @SuppressWarnings("unchecked")
+  public static List<Materials> readMaterials(String fileName) {
+    try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName))) {
+      return (List<Materials>) stream.readObject();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+  }
 
   public void saveSettings(Settings settings) {
     // Implement the logic to save settings to the database
