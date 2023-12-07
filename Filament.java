@@ -10,8 +10,8 @@ public class Filament extends Materials {
 
   // Example constructor
   public Filament(String brand, String material, double cost, double diameter, String type,
-      double weight, Settings optimalSettings) {
-    super(brand, material, cost, type, optimalSettings);
+      String col, double weight, Settings optimalSettings) {
+    super(brand, material, cost, type, col, optimalSettings);
     this.setDiameter(diameter);
     this.setWeight(weight);
   }

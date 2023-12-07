@@ -8,9 +8,9 @@ class Resin extends Materials {
   private double volume;
 
   // Example constructor
-  public Resin(String brand, String material, double cost, String type, double volume,
+  public Resin(String brand, String material, double cost, String type, String col, double volume,
       Settings optimalSettings) {
-    super(brand, material, cost, type, optimalSettings);
+    super(brand, material, cost, type, col, optimalSettings);
     this.setVolume(volume);
   }
 

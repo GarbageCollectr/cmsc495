@@ -11,6 +11,7 @@ class Materials implements Serializable {
   private double cost;
   private String type;
   private Settings optimalSettings;
+  private String color;
 
   // Constructor, getters, setters, and any other necessary methods
 
@@ -18,13 +19,14 @@ class Materials implements Serializable {
 
 
 
-  public Materials(String brand, String material, double cost, String type,
+  public Materials(String brand, String material, double cost, String type, String col,
       Settings optimalSettings) {
     this.setBrand(brand);
     this.setMaterial(material);
     this.setCost(cost);
     this.setType(type);
     this.setOptimalSettings(optimalSettings);
+    this.color = col;
   }
 
   /**
@@ -95,5 +97,19 @@ class Materials implements Serializable {
    */
   public void setOptimalSettings(Settings optimalSettings) {
     this.optimalSettings = optimalSettings;
+  }
+
+  /**
+   * @return the color
+   */
+  public String getColor() {
+    return color;
+  }
+
+  /**
+   * @param color the color to set
+   */
+  public void setColor(String color) {
+    this.color = color;
   }
 }

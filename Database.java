@@ -16,10 +16,38 @@ public class Database {
 
   // list save methods here:
 
+  public void savePrinters() {
+    writePrinters("printers.txt", printerList);
+  }
+
+  public void saveMaterials() {
+    writeMaterials("materials.txt", materialList);
+  }
+
   // list load methods here:
+
+  public void loadPrinters() {
+    printerList = readPrinters("printers.txt");
+  }
+
+  public void loadMaterials() {
+    materialList = readMaterials("materials.txt");
+  }
 
   // needs functionality to return a List<Material> with a subset of materialList that has only
   // nodes with certain colors, material types, etc
+
+  public List<Materials> filterMaterials(String color, String type) {
+    List<Materials> filteredMaterials = new ArrayList<>();
+
+    for (Materials mat : materialList) {
+      if (mat.getColor().equals(color) && mat.getType().equals(type)) {
+        filteredMaterials.add(mat);
+      }
+    }
+
+    return filteredMaterials;
+  }
 
   public static void writePrinters(String fileName, List<Printer> printers) {
     try (ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fileName))) {

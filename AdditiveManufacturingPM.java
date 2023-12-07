@@ -33,10 +33,10 @@ public class AdditiveManufacturingPM {
 
     // Create a Materials instance (Filament)
     Filament filament =
-        new Filament("Filament Brand", "PLA", 10.0, 1.75, "Type A", 1.0, commonSettings);
+        new Filament("Filament Brand", "PLA", 10.0, 1.75, "Type A", "Green", 1.0, commonSettings);
 
     // Create a Materials instance (Resin)
-    Resin resin = new Resin("Resin Brand", "Resin A", 20.0, "Type B", 1.0, commonSettings);
+    Resin resin = new Resin("Resin Brand", "Resin A", 20.0, "Type B", "Grey", 1.0, commonSettings);
 
     // Save and load settings using the Database
     Database database = new Database();
