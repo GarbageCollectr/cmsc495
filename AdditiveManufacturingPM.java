@@ -22,7 +22,7 @@ public class AdditiveManufacturingPM {
       System.out.println("2 -- Add New Printer");
       System.out.println("3 -- Add New Filament");
       System.out.println("4 -- Add New Resin");
-      System.out.println("5 -- Update Filament Inventory");
+      System.out.println("5 -- Update Material Inventory");
       System.out.println("6 -- Update Printer Inventory");
       System.out.println("99 -- Save and Quit");
       System.out.print("Select option: ");
@@ -130,7 +130,7 @@ public class AdditiveManufacturingPM {
         System.out.println("Please enter new weight(kg) or volume(mm)");
         double newValue = bob.nextDouble();
         bob.nextLine();
-        if ((int) newValue == 0) {
+        if (newValue == 0.00) {
           l.remove();
         } else {
           m.setAmountLeft(newValue);
