@@ -1,7 +1,5 @@
 // Resin Printer Class (Subclass of Printer)
 
-import java.util.List;
-
 public class ResinPrinter extends Printer {
   /**
    * 
@@ -10,7 +8,11 @@ public class ResinPrinter extends Printer {
 
   // Additional properties or methods specific to Resin Printer
   // Example constructor
-  public ResinPrinter(String brand, List<String> supportedMaterials, double bedArea) {
-    super(brand, supportedMaterials, bedArea, 0, 0);
+  public ResinPrinter(String brand, double bedArea) {
+    super(brand, bedArea);
+  }
+
+  public String toString() {
+    return "Resin " + super.toString();
   }
 }

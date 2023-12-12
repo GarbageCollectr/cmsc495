@@ -1,0 +1,15 @@
+Filaments:
+PLA, Brand: Overture, Color: Orange, Diameter: 1.75mm, Remaining Weight: 1.0kg
+PLA, Brand: eSun, Color: Black, Diameter: 1.75mm, Remaining Weight: 1.0kg
+
+Resins:
+ABS-like, Brand: Anycubic, Color: Clear, Remaining Volume: 1000.0ml
+ABS-like, Brand: Anycubic, Color: Grey, Remaining Volume: 1000.0ml
+ABS-like, Brand: Anycubic, Color: Translucent Green, Remaining Volume: 1000.0ml
+Water-Washable Resin, Brand: Elgoo, Color: Ruby Red, Remaining Volume: 1000.0ml
+
+Printers:
+Resin Brand: Anycubic, Print Area: 120.0cm^3
+FDM Brand: Bambu X1C, Print Area: 900.0cm^3
+FDM Brand: Creality, Print Area: 360.0cm^3
+Resin Brand: Elgoo Saturn, Print Area: 360.0cm^3

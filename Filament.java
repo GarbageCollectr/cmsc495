@@ -6,14 +6,14 @@ public class Filament extends Materials {
   private static final long serialVersionUID = 1L;
   // Additional properties or methods specific to Filament
   private double diameter;
-  private double weight;
+
 
   // Example constructor
   public Filament(String brand, String material, double cost, double diameter, String type,
-      String col, double weight, Settings optimalSettings) {
-    super(brand, material, cost, type, col, optimalSettings);
+      String col, double weight) {
+    super(brand, material, cost, type, col);
     this.setDiameter(diameter);
-    this.setWeight(weight);
+    super.setAmountLeft(weight);
   }
 
   /**
@@ -30,17 +30,10 @@ public class Filament extends Materials {
     this.diameter = diameter;
   }
 
-  /**
-   * @return the weight
-   */
-  public double getWeight() {
-    return weight;
-  }
 
-  /**
-   * @param weight the weight to set
-   */
-  public void setWeight(double weight) {
-    this.weight = weight;
+
+  public String toString() {
+    return super.toString() + ", Diameter: " + diameter + "mm, Remaining Weight: "
+        + super.getAmountLeft() + "kg";
   }
 }

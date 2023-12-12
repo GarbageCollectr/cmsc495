@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 // Database Class
@@ -11,10 +13,21 @@ public class Database {
   // Responsibilities: Allow the application to read and write from the database
 
   // Each ArrayList should be able to be saved to a file and then reloaded at will from same file.
-  public List<Printer> printerList = new ArrayList<Printer>();
-  public List<Materials> materialList = new ArrayList<Materials>();
+  public final List<Printer> printerList = new ArrayList<>();
+  public final List<Materials> materialList = new ArrayList<>();
+
+  private static final Comparator<Printer> PRINTER_COMPARATOR =
+      Comparator.comparing(Printer::getBrand);
+
+  private static final Comparator<Materials> MATERIALS_COMPARATOR =
+      Comparator.comparing(Materials::getType).thenComparing(Comparator
+          .comparing(Materials::getBrand).thenComparing(Comparator.comparing(Materials::getColor)));
 
   // list save methods here:
+
+  public Database() {
+    // initialize Database
+  }
 
   public void savePrinters() {
     writePrinters("printers.txt", printerList);
@@ -27,11 +40,23 @@ public class Database {
   // list load methods here:
 
   public void loadPrinters() {
-    printerList = readPrinters("printers.txt");
+    printerList.clear();
+    printerList.addAll(readPrinters("printers.txt"));
+    sortPrinters();
+  }
+
+  public void sortPrinters() {
+    Collections.sort(printerList, PRINTER_COMPARATOR);
   }
 
   public void loadMaterials() {
-    materialList = readMaterials("materials.txt");
+    materialList.clear();
+    materialList.addAll(readMaterials("materials.txt"));
+    sortMaterials();
+  }
+
+  public void sortMaterials() {
+    Collections.sort(materialList, MATERIALS_COMPARATOR);
   }
 
   // needs functionality to return a List<Material> with a subset of materialList that has only
@@ -63,7 +88,11 @@ public class Database {
     try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName))) {
       return (List<Printer>) stream.readObject();
     } catch (Exception e) {
-      throw new RuntimeException(e);
+      System.err.println("printers.txt not found");
+      System.err.println("Initializing blank printers.txt");
+      writePrinters(fileName, new ArrayList<>());
+      List<Printer> p = readPrinters(fileName);
+      return p;
     }
 
   }
@@ -82,22 +111,14 @@ public class Database {
     try (ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName))) {
       return (List<Materials>) stream.readObject();
     } catch (Exception e) {
-      throw new RuntimeException(e);
+      System.err.println("materials.txt not found");
+      System.err.println("Initializing blank materials.txt");
+      writePrinters(fileName, new ArrayList<>());
+      List<Materials> p = readMaterials(fileName);
+      return p;
     }
 
-  }
-
-  public void saveSettings(Settings settings) {
-    // Implement the logic to save settings to the database
-    System.out.println("Settings saved to the database.");
-  }
-
-  public Settings loadSettings() {
-    // Implement the logic to load settings from the database
-    System.out.println("Settings loaded from the database.");
-    return null; // Placeholder, replace with actual implementation
-
-
 
   }
+
 }
